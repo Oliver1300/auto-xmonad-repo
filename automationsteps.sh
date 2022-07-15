@@ -1,12 +1,20 @@
+# Make sure you are in ~/  use pwd to see it
+# Get this script via: git clone https://github.com/Oliver1300/auto-xmonad-repo
 # NOTES: Installs git
 
 # xmonad installation, following steps from https://xmonad.org/INSTALL.html
 
-# installs xmonad dependencies
+# install xmonad dependencies
 sudo pacman -S git xorg-server xorg-apps xorg-xinit xorg-xmessage libx11 libxft libxinerama libxrandr libxss pkgconf git
 sleep 1
 # xmonad preparation (dotfiles)
-mkdir -p ~/.config/xmonad && cd ~/.config/xmonad
+mkdir -p ~/.config/xmonad
+mv ~/auto-xmonad-repo/xmonad.hs ~/.config/xmonad
+cd ~/.config/xmonad
+ls
+echo 'You should see now xmonad.hs'
+sleep 5
+
 git clone https://github.com/xmonad/xmonad
 git clone https://github.com/xmonad/xmonad-contrib
 sleep 1
