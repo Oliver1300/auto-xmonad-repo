@@ -1,3 +1,5 @@
+https://xmonad.org/INSTALL.html
+https://www.youtube.com/watch?v=XvKAiR403O0
 # Make sure you are in ~/  use pwd to see it
 # Get this script via: git clone https://github.com/Oliver1300/auto-xmonad-repo
 # NOTES: Installs git
