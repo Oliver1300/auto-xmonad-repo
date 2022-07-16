@@ -7,7 +7,11 @@
 # xmonad installation, following steps from https://xmonad.org/INSTALL.html
 
 # install xmonad dependencies
-sudo pacman -S --needed git xorg-server xorg-apps xorg-xinit xorg-xmessage libx11 libxft libxinerama libxrandr libxss pkgconf git
+sudo pacman -Syu
+sudo pacman -S --needed git xorg-server xorg-apps xorg-xinit xorg-xmessage libx11 libxft libxinerama libxrandr libxss pkgconf git zsh
+
+#configure zsh
+zsh
 
 # xmonad preparation (dotfiles)
 mkdir -p ~/.config/xmonad
