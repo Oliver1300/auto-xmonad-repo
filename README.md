@@ -9,6 +9,7 @@ archinstall
 ```
 cd ~/ && git clone https://github.com/USER/auto-xmonad-repo
 ```
+- Run the custom script
 ```
 bash auto-xmonad-repo/automationsteps.sh
 ```
