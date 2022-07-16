@@ -18,9 +18,9 @@ sleep 5
 git clone https://github.com/xmonad/xmonad
 git clone https://github.com/xmonad/xmonad-contrib
 # add ~/.local/bin to $PATH in zsh
-echo '# set PATH so it includes user local bin if it exists' >> ~./zshrc
-echo 'if [ -d "$HOME/.local/bin" ]; then' >> ~./zshrc
-echo '  PATH="$HOME/.local/bin:$PATH"' >> ~./zshrc
+echo '# set PATH so it includes user local bin if it exists' >> ~/.zshrc
+echo 'if [ -d "$HOME/.local/bin" ]; then' >> ~/.zshrc
+echo '  PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
 echo 'fi' >> ~./zshrc
 source ~/.zshrc
 # build xmonad using Stack
