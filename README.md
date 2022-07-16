@@ -15,5 +15,5 @@ cd ~/ && git clone https://github.com/USER/auto-xmonad-repo
 ```
 - Run the custom script
 ```
-zsh auto-xmonad-repo/automationsteps.sh
+bash auto-xmonad-repo/automationsteps.sh
 ```
