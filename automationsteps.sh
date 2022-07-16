@@ -6,8 +6,6 @@
 # install xmonad dependencies
 sudo pacman -Syu
 sudo pacman -S --needed git xorg-server xorg-apps xorg-xinit xorg-xmessage libx11 libxft libxinerama libxrandr libxss pkgconf git zsh
-#configure zsh
-zsh
 # xmonad preparation (dotfiles)
 mkdir -p ~/.config/xmonad
 mv ~/auto-xmonad-repo/xmonad.hs ~/.config/xmonad
