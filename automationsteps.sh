@@ -5,7 +5,7 @@
 # xmonad installation, following steps from https://xmonad.org/INSTALL.html
 # install xmonad dependencies
 sudo pacman -Syu
-sudo pacman -S --needed git xorg-server xorg-apps xorg-xinit xorg-xmessage libx11 libxft libxinerama libxrandr libxss pkgconf git zsh
+sudo pacman -Sy git xorg-server xorg-apps xorg-xinit xorg-xmessage libx11 libxft libxinerama libxrandr libxss pkgconf
 # xmonad preparation (dotfiles)
 mkdir -p ~/.config/xmonad
 mv ~/auto-xmonad-repo/xmonad.hs ~/.config/xmonad
@@ -14,14 +14,14 @@ clear
 ls
 # AUTOMATE THIS WITH GREP
 echo 'You should see now xmonad.hs printed'
-sleep 5
+sleep 50
 git clone https://github.com/xmonad/xmonad
 git clone https://github.com/xmonad/xmonad-contrib
 # add ~/.local/bin to $PATH in zsh
 echo '# set PATH so it includes user local bin if it exists' >> ~/.zshrc
 echo 'if [ -d "$HOME/.local/bin" ]; then' >> ~/.zshrc
 echo '  PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
-echo 'fi' >> ~./zshrc
+echo 'fi' >> ~/.zshrc
 source ~/.zshrc
 # build xmonad using Stack
 # installing stack
