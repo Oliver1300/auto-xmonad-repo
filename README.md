@@ -5,6 +5,10 @@
 ```
 archinstall
 ```
+- Setup the zsh shell
+```
+zsh
+```
 - Once installed, clone this repo:
 ```
 cd ~/ && git clone https://github.com/USER/auto-xmonad-repo
