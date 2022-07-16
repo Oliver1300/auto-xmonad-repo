@@ -22,13 +22,11 @@ sleep 5
 git clone https://github.com/xmonad/xmonad
 git clone https://github.com/xmonad/xmonad-contrib
 # add ~/.local/bin to $PATH in zsh
-if [ echo $0 == "zsh" ] ; then
+echo '# set PATH so it includes user local bin if it exists' >> ~./zshrc
+echo 'if [ -d "$HOME/.local/bin" ]; then' >> ~./zshrc
+echo '  PATH="$HOME/.local/bin:$PATH"' >> ~./zshrc
+echo 'fi' >> ~./zshrc
 
-else
-  echo 'Not found zsh shell, could lead to an error in the future'
-  echo 'Continuing in 10 seconds'
-  sleep 10
-fi
 source ~/.zshrc
 
 # build xmonad using Stack
@@ -37,3 +35,5 @@ sudo pacman -S stack
 sleep 1
 stack upgrade
 stack init
+# build xmonad
+stack intall
