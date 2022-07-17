@@ -48,7 +48,7 @@ function install_basic_stuff()  {
   echo    # (optional) move to a new line
   if [[ $REPLY =~ ^[Yy]$ ]]
   then
-    sudo pacman -S --noconfirm lightdm lightdm-gtk-greeter
+    sudo pacman -S lightdm lightdm-gtk-greeter
     sudo systemctl enable lightdm
     # if resolution goes wrong see https://youtu.be/JmPLbZQRgas?t=249
     cd ~
