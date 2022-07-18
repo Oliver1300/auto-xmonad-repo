@@ -5,7 +5,7 @@
 # update system
 sudo pacman -Syu
 # install dialog for displaying dialog boxes
-sudo pacman -S --needed dialog os-prober cups
+sudo pacman -S --noconfirm dialog os-prober
 clear
 
 dialog --backtitle "Automate script" --title "PREREQUISITES: git, zsh configured" --msgbox "This script automates the process for installing programs like xorg dependencies, nitrogen, picom, nano, alacritty, xmonad, lightdm" 16 40 # section
@@ -19,19 +19,21 @@ function install_basic_stuff()  {
   echo    # (optional) move to a new line
   if [[ $REPLY =~ ^[Yy]$ ]]
   then
+    sudo pacman -S --noconfirm cups
     sudo systemctl enable cups.service
   fi
   read -p "Install nano vim nitrogen picom alacritty firefox? " -n 1 -r
   echo    # (optional) move to a new line
   if [[ $REPLY =~ ^[Yy]$ ]]
   then
-    sudo pacman -S --needed nano vim nitrogen picom alacritty firefox cronie
+    # TODO ADD OPTION IN PCMANFM TO OPEN AS ROOT, OPEN IN TERMINAL
+    sudo pacman -S --noconfirm nano vim nitrogen picom alacritty firefox htop ranger pcmanfm-gtk3
   fi
   read -p "Check and install nvidia drivers? " -n 1 -r
   echo    # (optional) move to a new line
   if [[ $REPLY =~ ^[Yy]$ ]]
   then
-    sudo pacman -S --needed nvidia nvidia-utils nvidia-settings
+    sudo pacman -S --noconfirm nvidia nvidia-utils nvidia-settings
   fi
   
   read -p "Install xmonad 1st way? " -n 1 -r
@@ -48,7 +50,7 @@ function install_basic_stuff()  {
   echo    # (optional) move to a new line
   if [[ $REPLY =~ ^[Yy]$ ]]
   then
-    sudo pacman -S lightdm lightdm-gtk-greeter
+    sudo pacman -S --noconfirm lightdm lightdm-gtk-greeter
     sudo systemctl enable lightdm
     # if resolution goes wrong see https://youtu.be/JmPLbZQRgas?t=249
     cd ~
@@ -75,7 +77,7 @@ function install_yay()  {
   echo    # (optional) move to a new line
   if [[ $REPLY =~ ^[Yy]$ ]]
   then
-    sudo pacman -S --needed base-devel git
+    sudo pacman -S --noconfirm base-devel git
     git clone https://aur.archlinux.org/yay.git
     cd yay
     makepkg -si
@@ -87,49 +89,12 @@ function install_yay()  {
   fi
 }
 
-#function install_xmonad_broken_way()  {
-#  read -p "Install xmonad? " -n 1 -r
-#  echo    # (optional) move to a new line
-#  if [[ $REPLY =~ ^[Yy]$ ]]
-#  then
-#    # install xmonad dependencies
-#    sudo pacman -S xorg-server xorg-apps xorg-xinit xorg-xmessage libx11 libxft libxinerama libxrandr libxss pkgconf
-#    # xnomad preparation
-#    mkdir -p ~/.config/xmonad
-#    mv ~/auto-xmonad-repo/xmonad.hs ~/.config/xmonad
-#    cd ~/.config/xmonad
-#    git clone https://github.com/xmonad/xmonad
-#    git clone https://github.com/xmonad/xmonad-contrib
-#    # add ~/.local/bin to $PATH in zsh
-#    echo '# set PATH so it includes user local bin if it exists' >> ~/.zshrc
-#    echo 'if [ -d $HOME/.local/bin ]; then' >> ~/.zshrc
-#    echo '  PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
-#    echo 'fi' >> ~/.zshrc
-#    source ~/.zshrc
-#  
-#    # build xmonad using Stack
-#    echo 'Building xmonad using Stack...'
-#    sleep 3
-#  
-#    # installing stack
-#    sudo pacman -S stack
-#    sleep 5
-#    stack upgrade
-#    stack init
-#    # build xnomad
-#    stack install
-#    sleep 1
-#    echo 'Xmonad is installed.'
-#    cd ~
-#  fi
-#}
-
 function cleanup()  {
   read -p "Try to cleanup? " -n 1 -r
   echo    # (optional) move to a new line
   if [[ $REPLY =~ ^[Yy]$ ]]
   then
-    sudo pacman -Sy pacman-contrib
+    sudo pacman -S --noconfirm pacman-contrib
     paccache -r
   fi
 }
