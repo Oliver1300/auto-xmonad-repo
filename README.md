@@ -20,4 +20,4 @@ bash auto-xmonad-repo/automate.sh
 ```
 - Setup nitrogen background, press MOD + P and type:
 > nitrogen
-- Go to *Preferences*, *Add Directory* and select ~/Pictures
+- Go to *Preferences*, *Add Directory* and select ~/Backgrounds
