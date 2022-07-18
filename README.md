@@ -18,10 +18,7 @@ cd ~/ && git clone https://github.com/USER/auto-xmonad-repo
 ```
 bash auto-xmonad-repo/automate.sh
 ```
-- Move the `background01.jpg` image in the repo to `~/Pictures`:
-```
-mv ~/auto-xmonad-repo/background01.jpg ~/Pictures
-```
+\
 - Setup nitrogen background, press MOD + P and type:
 > nitrogen
 - Go to *Preferences*, *Add Directory* and select ~/Pictures
