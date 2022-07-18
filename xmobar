@@ -1,7 +1,9 @@
+-- https://projects.haskell.org/xmobar/
 Config { 
 
    -- appearance
      font =         "xft:Bitstream Vera Sans Mono:size=9:bold:antialias=true"
+   , additionalFonts = [ "xft:Mononoki Nerd Font:pixelsize=11:antialias=true:hinting=true", "xft:FontAwesome:pixelsize=13" ]
    , bgColor =      "black"
    , fgColor =      "#646464"
    , position =     Top
@@ -81,7 +83,7 @@ Config {
 
         -- time and date indicator 
         --   (%F = d-m-y date, %a = day of week, %T = h:m:s time)
-        , Run Date           "<fc=#ABABAB>%F (%a) %T</fc>" "date" 10
+        , Run Date           "<fn=1>\xf133</fn> %b %d %Y - (%H %M)" "date" 50
 
         -- keyboard layout indicator
         , Run Kbd            [ ("us(dvorak)" , "<fc=#00008B>DV</fc>")
