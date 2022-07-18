@@ -18,7 +18,6 @@ cd ~/ && git clone https://github.com/USER/auto-xmonad-repo
 ```
 bash auto-xmonad-repo/automate.sh
 ```
-\
 - Setup nitrogen background, press MOD + P and type:
 > nitrogen
 - Go to *Preferences*, *Add Directory* and select ~/Pictures
