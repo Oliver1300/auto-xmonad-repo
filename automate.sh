@@ -21,29 +21,34 @@ function install_basic_stuff()  {
   then
     sudo pacman -S --noconfirm cups
     sudo systemctl enable cups.service
+    clear
   fi
   read -p "Install nano vim nitrogen picom alacritty firefox? " -n 1 -r
   echo    # (optional) move to a new line
   if [[ $REPLY =~ ^[Yy]$ ]]
   then
     # TODO ADD OPTION IN PCMANFM TO OPEN AS ROOT, OPEN IN TERMINAL
-    sudo pacman -S --noconfirm nano vim nitrogen picom alacritty firefox htop ranger pcmanfm-gtk3
+    sudo pacman -S --noconfirm nano vim nitrogen picom alacritty firefox htop ranger pcmanfm-gtk3 gedit
+    clear
   fi
   read -p "Check and install nvidia drivers? " -n 1 -r
   echo    # (optional) move to a new line
   if [[ $REPLY =~ ^[Yy]$ ]]
   then
     sudo pacman -S --noconfirm nvidia nvidia-utils nvidia-settings
+    clear
   fi
   
-  read -p "Install xmonad 1st way? " -n 1 -r
+  read -p "Install xmonad? " -n 1 -r
   echo    # (optional) move to a new line
   if [[ $REPLY =~ ^[Yy]$ ]]
   then
     sudo pacman -S --noconfirm xmonad xmonad-contrib xmobar dmenu
     cd ~
     mkdir .xmonad
-    mv ~/auto-xmonad-repo/xmonad.hs ~/.xmonad/
+    cp ~/auto-xmonad-repo/xmonad.hs ~/.xmonad/
+    cp ~/auto-xmonad-repo/xmobar ~/.xmobarrc
+    clear
   fi
   
   read -p "Install lightdm and configure it? " -n 1 -r
@@ -60,8 +65,7 @@ function install_basic_stuff()  {
     echo '# Compositor' >> .xprofile
     echo 'picom -f &' >> .xprofile
     # see https://youtu.be/JmPLbZQRgas?t=370 to disable vsync
-    
-    #read -p "We should now reboot to test if lightdm is working"
+    clear
   fi
   read -p "Create user default directories? " -n 1 -r
   echo    # (optional) move to a new line
@@ -69,6 +73,7 @@ function install_basic_stuff()  {
   then
     sudo pacman -S --noconfirm xdg-user-dirs xdg-utils
     xdg-users-dirs-update
+    clear
   fi
 }
 
@@ -83,9 +88,8 @@ function install_yay()  {
     makepkg -si
     sleep 1
     cd ~
+    rm -rf yay
     clear
-    which yay
-    yay --version
   fi
 }
 
