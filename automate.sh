@@ -14,53 +14,8 @@ dialog --backtitle "Automate script" --title "Options" --msgbox "You can select 
 read -p "To start press ENTER."
 clear
 
-function install_basic_stuff()  {
-  read -p "Enable cups [y/n]? " -n 1 -r
-  echo    # (optional) move to a new line
-  if [[ $REPLY =~ ^[Yy]$ ]]
-  then
-    sudo pacman -S --noconfirm cups
-    sudo systemctl enable cups.service
-    clear
-  fi
-  read -p "Install most of the programs in programs.md [y/n]? " -n 1 -r
-  echo    # (optional) move to a new line
-  if [[ $REPLY =~ ^[Yy]$ ]]
-  then
-    # TODO ADD OPTION IN PCMANFM TO OPEN AS ROOT, OPEN IN TERMINAL
-    sudo pacman -S --noconfirm nano vim nitrogen picom alacritty firefox htop ranger pcmanfm-gtk3 gedit
-    sudo pacman -S --noconfirm nvidia nvidia-utils nvidia-settings neofetch
-    clear
-  fi
-  
-  read -p "Install lightdm with xmonad and configure it [y/n]? " -n 1 -r
-  echo    # (optional) move to a new line
-  if [[ $REPLY =~ ^[Yy]$ ]]
-  then
-    sudo pacman -S --noconfirm xmonad xmonad-contrib xmobar dmenu
-    cd ~
-    mkdir .xmonad
-    cp ~/auto-xmonad-repo/xmonad.hs ~/.xmonad/
-    cp ~/auto-xmonad-repo/xmobar ~/.xmobarrc
-    
-    sudo pacman -S --noconfirm lightdm lightdm-gtk-greeter
-    sudo systemctl enable lightdm
-    # if resolution goes wrong see https://youtu.be/JmPLbZQRgas?t=249
-    cd ~
-    touch .xprofile
-    echo '# Wallpaper' >> .xprofile
-    echo 'nitrogen --restore &' >> .xprofile
-    echo '# Compositor' >> .xprofile
-    echo 'picom -f &' >> .xprofile
-    # see https://youtu.be/JmPLbZQRgas?t=370 to disable vsync
-    sudo pacman -S --noconfirm xdg-user-dirs xdg-utils piper
-    xdg-users-dirs-update
-    clear
-  fi
-}
-
 function skip_asking_basic_stuff()  {
-  sudo pacman -S --noconfirm nano vim nitrogen picom alacritty firefox htop ranger pcmanfm-gtk3 gedit nvidia nvidia-utils nvidia-settings xmonad xmonad-contrib xmobar dmenu lightdm lightdm-gtk-greeter xdg-user-dirs xdg-utils cups neofetch piper
+  sudo pacman -S --noconfirm nano vim nitrogen picom alacritty firefox htop ranger pcmanfm-gtk3 gedit nvidia nvidia-utils nvidia-settings xmonad xmonad-contrib xmobar dmenu lightdm lightdm-gtk-greeter xdg-user-dirs xdg-utils cups neofetch piper lxsession nm-connection-editor network-manager-applet volumeicon trayer zenity ffplay
   
   #cups
   sudo systemctl enable cups.service
@@ -71,6 +26,9 @@ function skip_asking_basic_stuff()  {
   cp ~/auto-xmonad-repo/xmobar ~/.xmobarrc
   # lightdm
   sudo systemctl enable lightdm
+  # if resolution goes wrong see https://youtu.be/JmPLbZQRgas?t=249
+  # TODO: Check that it works, network manager
+  sudo systemctl enable NetworkManager
   # startup config
   cd ~
   touch .xprofile
@@ -78,6 +36,7 @@ function skip_asking_basic_stuff()  {
   echo 'nitrogen --restore &' >> .xprofile
   echo '# Compositor' >> .xprofile
   echo 'picom -f &' >> .xprofile
+  # see https://youtu.be/JmPLbZQRgas?t=370 to disable vsync
   # user directories
   xdg-users-dirs-update
 }
@@ -93,6 +52,7 @@ function install_yay()  {
 }
 
 function cleanup()  {
+  mv ~/auto-xmonad-repo/help.txt ~/.keybindings.txt
   sudo pacman -S --noconfirm pacman-contrib
   paccache -r
 }
@@ -109,7 +69,12 @@ function add_nitrogen_background()  {
 
 function selection()  {
   clear
-  install_basic_stuff
+  read -p "Install most of the programs? " -n 1 -r
+  echo    # (optional) move to a new line
+  if [[ $REPLY =~ ^[Yy]$ ]]
+  then
+    skip_asking_basic_stuff
+  fi
   clear
   read -p "Install yay (AUR Helper) [y/n]? " -n 1 -r
   echo    # (optional) move to a new line
@@ -141,6 +106,8 @@ function no_selection()  {
   add_nitrogen_background
   cleanup
 }
+
+# init
 read -p "Enable selection during the process [y/n]? " -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
