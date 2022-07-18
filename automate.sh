@@ -29,7 +29,7 @@ function install_basic_stuff()  {
   then
     # TODO ADD OPTION IN PCMANFM TO OPEN AS ROOT, OPEN IN TERMINAL
     sudo pacman -S --noconfirm nano vim nitrogen picom alacritty firefox htop ranger pcmanfm-gtk3 gedit
-    sudo pacman -S --noconfirm nvidia nvidia-utils nvidia-settings
+    sudo pacman -S --noconfirm nvidia nvidia-utils nvidia-settings neofetch
     clear
   fi
   
@@ -53,14 +53,14 @@ function install_basic_stuff()  {
     echo '# Compositor' >> .xprofile
     echo 'picom -f &' >> .xprofile
     # see https://youtu.be/JmPLbZQRgas?t=370 to disable vsync
-    sudo pacman -S --noconfirm xdg-user-dirs xdg-utils
+    sudo pacman -S --noconfirm xdg-user-dirs xdg-utils piper
     xdg-users-dirs-update
     clear
   fi
 }
 
 function skip_asking_basic_stuff()  {
-  sudo pacman -S --noconfirm nano vim nitrogen picom alacritty firefox htop ranger pcmanfm-gtk3 gedit nvidia nvidia-utils nvidia-settings xmonad xmonad-contrib xmobar dmenu lightdm lightdm-gtk-greeter xdg-user-dirs xdg-utils cups go
+  sudo pacman -S --noconfirm nano vim nitrogen picom alacritty firefox htop ranger pcmanfm-gtk3 gedit nvidia nvidia-utils nvidia-settings xmonad xmonad-contrib xmobar dmenu lightdm lightdm-gtk-greeter xdg-user-dirs xdg-utils cups neofetch piper
   
   #cups
   sudo systemctl enable cups.service
@@ -83,7 +83,7 @@ function skip_asking_basic_stuff()  {
 }
 
 function install_yay()  {
-  sudo pacman -S --noconfirm base-devel git
+  sudo pacman -S --noconfirm base-devel git go
   git clone https://aur.archlinux.org/yay.git
   cd yay
   makepkg -si
@@ -97,17 +97,12 @@ function cleanup()  {
   paccache -r
 }
 
-function config_nitrogen_background()  {
+function add_nitrogen_background()  {
   mkdir -p ~/Backgrounds
   mv ~/auto-xmonad-repo/background01.jpg ~/Backgrounds
   mkdir -p ~/.config
   mkdir -p ~/.config/nitrogen
   touch bg-saved.cfg
-  
-  echo '[xin_-1]' >> bg-saved.cfg
-  echo file=$HOME/Backgrounds/background01.jpg >> bg-saved.cfg
-  echo 'mode=4' >> bg-saved.cfg
-  echo 'bgcolor=#000000' >> bg-saved.cfg
   
   cd ~
 }
@@ -130,7 +125,7 @@ function selection()  {
   echo    # (optional) move to a new line
   if [[ $REPLY =~ ^[Yy]$ ]]
   then
-    config_nitrogen_background
+    add_nitrogen_background
   fi
   clear
   read -p "Try to cleanup [y/n]? " -n 1 -r
@@ -143,7 +138,7 @@ function selection()  {
 function no_selection()  {
   skip_asking_basic_stuff
   install_yay
-  config_nitrogen_background
+  add_nitrogen_background
   cleanup
 }
 read -p "Enable selection during the process [y/n]? " -n 1 -r
