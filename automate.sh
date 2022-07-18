@@ -82,7 +82,10 @@ function config_themes()  {
   sudo yay -Syu
   sudo yay -S nerd-fonts-complete
   # set system font to this
-  # change file in monokai theme?
+  # change font in the file in monokai theme?
+
+
+  # config alacritty
 }
 
 function selection()  {

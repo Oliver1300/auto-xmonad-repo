@@ -1,0 +1,10 @@
+[X-GNOME-Metatheme]
+Name=Monokai
+Type=X-GNOME-Metatheme
+Comment=A monokai theme
+Encoding=UTF-8
+GtkTheme=Monokai
+MetacityTheme=Adwaita
+IconTheme=Adwaita
+CursorTheme=Adwaita
+CursorSize=24
