@@ -112,8 +112,6 @@ function config_nitrogen_background()  {
     mv ~/auto-xmonad-repo/background01.jpg ~/Backgrounds
     mkdir -p ~/.config
     mkdir -p ~/.config/nitrogen
-    cd ~/.config/nitrogen
-    touch nitrogen.cfg
     touch bg-saved.cfg
   
     echo '[xin_-1]' >> bg-saved.cfg
