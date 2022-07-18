@@ -137,8 +137,8 @@ myNormColor   = colorBack   -- This variable is imported from Colors.THEME
 myFocusColor :: String      -- Border color of focused windows
 myFocusColor  = color15     -- This variable is imported from Colors.THEME
 
-mySoundPlayer :: String
-mySoundPlayer = "ffplay -nodisp -autoexit " -- The program that will play system sounds
+--mySoundPlayer :: String
+--mySoundPlayer = "ffplay -nodisp -autoexit " -- The program that will play system sounds
 
 --myNormalBorderColor  = "#909090"
 --myFocusedBorderColor = "#61ff6a"
@@ -238,7 +238,7 @@ myLogHook = return ()
 
 myStartupHook :: X ()
 myStartupHook = do
-  spawnOnce (mySoundPlayer ++ startupSound)
+  --spawnOnce (mySoundPlayer ++ startupSound)
   --spawn "killall conky"   -- kill current conky on each restart
   spawn "killall trayer"  -- kill current trayer on each restart
 
