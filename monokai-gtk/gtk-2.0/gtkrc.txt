@@ -1,4 +1,4 @@
-gtk-font-name = "Monosans 12"
+gtk-font-name = "Helvetica Neue 12"
 gtk-color-scheme = "base_color: #4c4b49"
 gtk-color-scheme = "text_color: #ffffff"
 gtk-color-scheme = "bg_color: #333333"
