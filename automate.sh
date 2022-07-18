@@ -15,7 +15,9 @@ read -p "To start press ENTER."
 clear
 
 function skip_asking_basic_stuff()  {
-  sudo pacman -S --noconfirm nano vim nitrogen picom alacritty firefox htop ranger pcmanfm-gtk3 gedit nvidia nvidia-utils nvidia-settings xmonad xmonad-contrib xmobar dmenu lightdm lightdm-gtk-greeter xdg-user-dirs xdg-utils cups neofetch piper lxsession nm-connection-editor network-manager-applet volumeicon trayer zenity ffplay
+  sudo pacman -S --noconfirm nano vim nitrogen picom alacritty firefox htop ranger pcmanfm-gtk3 gedit
+  sudo pacman -S --noconfirm nvidia nvidia-utils nvidia-settings xmonad xmonad-contrib xmobar dmenu lightdm lightdm-gtk-greeter xdg-user-dirs xdg-utils
+  sudo pacman -S --noconfirm cups pneofetch piper lxsession nm-connection-editor network-manager-applet volumeicon trayer zenity ffplay
   
   #cups
   sudo systemctl enable cups.service
@@ -52,7 +54,9 @@ function install_yay()  {
 }
 
 function cleanup()  {
+  # move keybindings help text for xmonad
   mv ~/auto-xmonad-repo/help.txt ~/.keybindings.txt
+  # delete orphan packages
   sudo pacman -S --noconfirm pacman-contrib
   paccache -r
 }
