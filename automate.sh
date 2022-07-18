@@ -3,7 +3,7 @@
 # https://youtu.be/JmPLbZQRgas?t=371
 
 # update system
-sudo pacman -Syu
+sudo pacman -Syu --noconfirm
 # install dialog for displaying dialog boxes
 sudo pacman -S --noconfirm dialog os-prober
 clear
@@ -105,6 +105,7 @@ function selection()  {
   fi
 }
 function no_selection()  {
+  dialog --backtitle "Complete installation" --title "Message" --msgbox "Once you press to continue the script will skip for asking what to install" 20 20 # section
   skip_asking_basic_stuff
   install_yay
   add_nitrogen_background
