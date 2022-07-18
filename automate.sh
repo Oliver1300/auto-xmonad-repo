@@ -64,13 +64,25 @@ function cleanup()  {
 }
 
 function add_nitrogen_background()  {
+  cd ~
   mkdir -p ~/Backgrounds
   mv ~/auto-xmonad-repo/background01.jpg ~/Backgrounds
   mkdir -p ~/.config
   mkdir -p ~/.config/nitrogen
-  touch bg-saved.cfg
-  
-  cd ~
+}
+
+function config_themes()  {
+  # gtk themes
+  sudo cp -r ~/auto-xmonad-repo/monokai-gtk /usr/share/themes
+  mkdir -p ~/.themes
+  cp -r ~/auto-xmonad-repo/monokai-gtk ~/.themes
+  # set monokai as active
+
+  # download nerd-fonts-complete
+  sudo yay -Syu
+  sudo yay -S nerd-fonts-complete
+  # set system font to this
+  # change file in monokai theme?
 }
 
 function selection()  {
@@ -105,6 +117,8 @@ function selection()  {
   then
     cleanup
   fi
+
+  config_themes
 }
 function no_selection()  {
   dialog --backtitle "Complete installation" --title "Message" --msgbox "Once you press to continue the script will skip for asking what to install" 10 20 # section
@@ -112,6 +126,7 @@ function no_selection()  {
   install_yay
   add_nitrogen_background
   cleanup
+  config_themes
 }
 
 # init
