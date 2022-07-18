@@ -40,7 +40,7 @@ Config {
    , commands = 
         
         -- weather monitor change GCLP to your ICAO airport code
-        [ Run Weather "GCLP" [ "--template", "<skyCondition> | <fc=#4682B4><tempC></fc>°C | <fc=#4682B4><rh></fc>% | <fc=#4682B4><pressure></fc>hPa"
+        [ Run Weather "GCLP" [ "--template", "<skyCondition> | <fc=#4682B4><tempC></fc>°C | <fc=#4682B4><rh></fc>%"
                              ] 36000
         -- stdinreader workspace display
         , Run StdinReader
