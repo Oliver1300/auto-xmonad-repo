@@ -83,7 +83,7 @@ Config {
 
         -- time and date indicator 
         --   (%F = d-m-y date, %a = day of week, %T = h:m:s time)
-        , Run Date           "<fn=1>\xf133</fn> %b %d %Y - (%H %M)" "date" 50
+        , Run Date           "<fn=1>\xf133</fn> %b %d %Y - %H:%M" "date" 50
 
         -- keyboard layout indicator
         , Run Kbd            [ ("us(dvorak)" , "<fc=#00008B>DV</fc>")
