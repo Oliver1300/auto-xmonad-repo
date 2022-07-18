@@ -17,7 +17,9 @@ clear
 function skip_asking_basic_stuff()  {
   sudo pacman -S --noconfirm nano vim nitrogen picom alacritty firefox htop ranger pcmanfm-gtk3 gedit
   sudo pacman -S --noconfirm nvidia nvidia-utils nvidia-settings xmonad xmonad-contrib xmobar dmenu lightdm lightdm-gtk-greeter xdg-user-dirs xdg-utils
-  sudo pacman -S --noconfirm cups pneofetch piper lxsession nm-connection-editor network-manager-applet volumeicon trayer zenity ffplay
+  sudo pacman -S --noconfirm cups neofetch piper lxsession nm-connection-editor network-manager-applet volumeicon trayer zenity ffplay
+  # TODO: Check Network Manager is installed
+  sudo pacman -S lxappearance
   
   #cups
   sudo systemctl enable cups.service
@@ -105,7 +107,7 @@ function selection()  {
   fi
 }
 function no_selection()  {
-  dialog --backtitle "Complete installation" --title "Message" --msgbox "Once you press to continue the script will skip for asking what to install" 20 20 # section
+  dialog --backtitle "Complete installation" --title "Message" --msgbox "Once you press to continue the script will skip for asking what to install" 10 20 # section
   skip_asking_basic_stuff
   install_yay
   add_nitrogen_background
@@ -121,3 +123,4 @@ if [[ $REPLY =~ ^[Yy]$ ]]
   else
     no_selection
 fi
+dialog --backtitle "Script has finished" --title "Done!" --msgbox "You should know have all the packages and configuration" 10 20 # section
