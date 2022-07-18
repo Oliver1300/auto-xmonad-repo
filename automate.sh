@@ -19,7 +19,7 @@ function skip_asking_basic_stuff()  {
   sudo pacman -S --noconfirm nvidia nvidia-utils nvidia-settings xmonad xmonad-contrib xmobar dmenu lightdm lightdm-gtk-greeter xdg-user-dirs xdg-utils
   sudo pacman -S --noconfirm cups neofetch piper lxsession nm-connection-editor network-manager-applet volumeicon trayer zenity ffplay
   # TODO: Check Network Manager is installed
-  sudo pacman -S lxappearance nemo
+  sudo pacman -S lxappearance nemo ark
   
   #cups
   sudo systemctl enable cups.service
