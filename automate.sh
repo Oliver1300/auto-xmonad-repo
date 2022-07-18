@@ -103,6 +103,28 @@ function cleanup()  {
   fi
 }
 
+function config_nitrogen_background()  {
+  read -p "Configure nitrogen? " -n 1 -r
+  echo    # (optional) move to a new line
+  if [[ $REPLY =~ ^[Yy]$ ]]
+  then
+    mkdir -p ~/Backgrounds
+    mv ~/auto-xmonad-repo/background01.jpg ~/Backgrounds
+    mkdir -p ~/.config
+    mkdir -p ~/.config/nitrogen
+    cd ~/.config/nitrogen
+    touch nitrogen.cfg
+    touch bg-saved.cfg
+  
+    echo '[xin_-1]' >> bg-saved.cfg
+    echo file=$HOME/Backgrounds/background01.jpg >> bg-saved.cfg
+    echo 'mode=4' >> bg-saved.cfg
+    echo 'bgcolor=#000000' >> bg-saved.cfg
+  
+    cd ~
+  fi
+}
+
 function selection()  {
   clear
   install_basic_stuff
@@ -110,6 +132,8 @@ function selection()  {
   install_yay
   clear
   # TODO: MAKE ZSH DEFAULT SHELL
+  clear
+  config_nitrogen_background
   clear
   cleanup
 }
