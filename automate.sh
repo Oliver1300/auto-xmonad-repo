@@ -123,4 +123,4 @@ if [[ $REPLY =~ ^[Yy]$ ]]
   else
     no_selection
 fi
-dialog --backtitle "Script has finished" --title "Done!" --msgbox "You should know have all the packages and configuration" 10 20 # section
+dialog --backtitle "Script has finished" --title "Done!" --msgbox "You should know have all the packages and configuration" 10 10 # section
