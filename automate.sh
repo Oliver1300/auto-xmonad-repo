@@ -73,10 +73,16 @@ function add_nitrogen_background()  {
 
 function config_themes()  {
   # gtk themes
-  sudo cp -r ~/auto-xmonad-repo/monokai-gtk /usr/share/themes
+  sudo cp -r ~/auto-xmonad-repo/themes/monokai-gtk /usr/share/themes
   mkdir -p ~/.themes
-  cp -r ~/auto-xmonad-repo/monokai-gtk ~/.themes
+  cp -r ~/auto-xmonad-repo/themes/monokai-gtk ~/.themes
+  sudo cp -r ~/auto-xmonad-repo/themes/Fluent-round-Dark-compact /usr/share/themes
+  cp -r ~/auto-xmonad-repo/themes/Fluent-round-Dark-compact ~/.themes
   # set monokai as active
+  cp ~/auto-xmonad-repo/settings/gtk-2.settings ~/.gtk-2.0
+  cp ~/auto-xmonad-repo/settings/gtk-2.mine.settings ~/.gtk-2.0.mine
+  mkdir -p ~/.config/gtk-3.0
+  cp ~/auto-xmonad-repo/settings/gtk-3.settings ~/.config/gtk-3.0/settings.ini
 
   # download nerd-fonts-complete
   sudo yay -Syu
