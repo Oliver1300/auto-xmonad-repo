@@ -15,11 +15,11 @@ read -p "To start press ENTER."
 clear
 
 function skip_asking_basic_stuff()  {
-  sudo pacman -S --noconfirm nano vim nitrogen picom alacritty firefox htop ranger pcmanfm-gtk3 gedit
-  sudo pacman -S --noconfirm nvidia nvidia-utils nvidia-settings xmonad xmonad-contrib xmobar dmenu lightdm lightdm-gtk-greeter xdg-user-dirs xdg-utils
-  sudo pacman -S --noconfirm cups neofetch piper lxsession nm-connection-editor network-manager-applet volumeicon trayer zenity #ffplay
+  sudo pacman -S --needed --noconfirm nano vim nitrogen picom alacritty firefox htop ranger pcmanfm-gtk3 gedit
+  sudo pacman -S --needed --noconfirm nvidia nvidia-utils nvidia-settings xmonad xmonad-contrib xmobar dmenu lightdm lightdm-gtk-greeter xdg-user-dirs xdg-utils
+  sudo pacman -S --needed --noconfirm cups neofetch piper lxsession nm-connection-editor network-manager-applet volumeicon trayer zenity #ffplay
   # TODO: Check Network Manager is installed
-  sudo pacman -S lxappearance nemo ark
+  sudo pacman -S --needed --noconfirm lxappearance nemo ark
   
   #cups
   sudo systemctl enable cups.service
@@ -40,14 +40,14 @@ function skip_asking_basic_stuff()  {
   echo 'nitrogen --restore &' >> .xprofile
   echo '# Compositor' >> .xprofile
   echo 'picom -f &' >> .xprofile
-  echo 'lxsession' >> .xprofile
+  #echo 'lxsession' >> .xprofile
   # see https://youtu.be/JmPLbZQRgas?t=370 to disable vsync
   # user directories
   xdg-users-dirs-update
 }
 
 function install_yay()  {
-  sudo pacman -S --noconfirm base-devel git go
+  sudo pacman -S --needed --noconfirm base-devel git go
   git clone https://aur.archlinux.org/yay.git
   cd yay
   makepkg -si
