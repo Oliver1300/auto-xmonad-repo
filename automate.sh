@@ -80,20 +80,20 @@ function config_themes()  {
   sudo cp -r ~/auto-xmonad-repo/themes/Fluent-round-Dark-compact /usr/share/themes
   cp -r ~/auto-xmonad-repo/themes/Fluent-round-Dark-compact ~/.themes
   # set monokai as active
-  cp ~/auto-xmonad-repo/settings/gtk-2.settings ~/.gtkrc-2.0
-  cp ~/auto-xmonad-repo/settings/gtk-2.mine.settings ~/.gtkrc-2.0.mine
+  cp ~/auto-xmonad-repo/settings/.gtkrc-2.0 ~/
+  cp ~/auto-xmonad-repo/settings/.gtkrc-2.0.mine ~/
   mkdir -p ~/.config/gtk-3.0
   cp -r ~/auto-xmonad-repo/settings/settings.ini ~/.config/gtk-3.0/
 
   # download nerd-fonts-complete
-  yay -Syu
-  yay -S ttf-jetbrains-mono
-  yay -S nerd-fonts-jetbrains-mono
-  yay -S noto-fonts
+  #yay -Syu
+  #yay -S ttf-jetbrains-mono
+  #yay -S nerd-fonts-jetbrains-mono
+  #yay -S noto-fonts
 
   # set system font to this
   # change font in the file in monokai theme?
-
+  #/usr/share/fonts/TTF
 
   # config alacritty
 }
