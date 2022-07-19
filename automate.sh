@@ -40,6 +40,7 @@ function skip_asking_basic_stuff()  {
   echo 'nitrogen --restore &' >> .xprofile
   echo '# Compositor' >> .xprofile
   echo 'picom -f &' >> .xprofile
+  echo 'lxsession' >> .xprofile
   # see https://youtu.be/JmPLbZQRgas?t=370 to disable vsync
   # user directories
   xdg-users-dirs-update
@@ -82,11 +83,14 @@ function config_themes()  {
   cp ~/auto-xmonad-repo/settings/gtk-2.settings ~/.gtkrc-2.0
   cp ~/auto-xmonad-repo/settings/gtk-2.mine.settings ~/.gtkrc-2.0.mine
   mkdir -p ~/.config/gtk-3.0
-  cp -r ~/auto-xmonad-repo/settings/settings.ini ~/.config/gtk-3.0/settings.ini
+  cp -r ~/auto-xmonad-repo/settings/settings.ini ~/.config/gtk-3.0/
 
   # download nerd-fonts-complete
   yay -Syu
-  yay -S nerd-fonts-complete
+  yay -S ttf-jetbrains-mono
+  yay -S nerd-fonts-jetbrains-mono
+  yay -S noto-fonts
+
   # set system font to this
   # change font in the file in monokai theme?
 
@@ -94,6 +98,12 @@ function config_themes()  {
   # config alacritty
 }
 
+function reboot()  {
+  dialog --backtitle "Script has finished" --title "Reboot" --msgbox "You should know have all the packages and configuration let's reboot" 10 15 # section
+  sudo reboot
+}
+
+# unmaintained.
 function selection()  {
   clear
   read -p "Install most of the programs? " -n 1 -r
@@ -135,6 +145,7 @@ function no_selection()  {
   add_nitrogen_background
   cleanup
   config_themes
+  reboot
 }
 
 # init
@@ -142,8 +153,7 @@ read -p "Enable selection during the process [y/n]? " -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
   then
-    selection
+    no_selection
   else
     no_selection
 fi
-dialog --backtitle "Script has finished" --title "Done!" --msgbox "You should know have all the packages and configuration" 10 10 # section
