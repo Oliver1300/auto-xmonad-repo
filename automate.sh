@@ -40,7 +40,7 @@ function skip_asking_basic_stuff()  {
   echo 'nitrogen --restore &' >> .xprofile
   echo '# Compositor' >> .xprofile
   echo 'picom -f &' >> .xprofile
-  #echo 'lxsession' >> .xprofile
+  echo 'lxsession' >> .xprofile
   # see https://youtu.be/JmPLbZQRgas?t=370 to disable vsync
   # user directories
   xdg-users-dirs-update
@@ -86,10 +86,10 @@ function config_themes()  {
   cp -r ~/auto-xmonad-repo/settings/settings.ini ~/.config/gtk-3.0/
 
   # download nerd-fonts-complete
-  #yay -Syu
-  #yay -S ttf-jetbrains-mono
-  #yay -S nerd-fonts-jetbrains-mono
-  #yay -S noto-fonts
+  yay -Syu
+  yay -S ttf-jetbrains-mono
+  yay -S nerd-fonts-jetbrains-mono
+  yay -S noto-fonts
 
   # set system font to this
   # change font in the file in monokai theme?
