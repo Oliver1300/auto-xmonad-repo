@@ -79,14 +79,14 @@ function config_themes()  {
   sudo cp -r ~/auto-xmonad-repo/themes/Fluent-round-Dark-compact /usr/share/themes
   cp -r ~/auto-xmonad-repo/themes/Fluent-round-Dark-compact ~/.themes
   # set monokai as active
-  cp ~/auto-xmonad-repo/settings/gtk-2.settings ~/.gtk-2.0
-  cp ~/auto-xmonad-repo/settings/gtk-2.mine.settings ~/.gtk-2.0.mine
+  cp ~/auto-xmonad-repo/settings/gtk-2.settings ~/.gtkrc-2.0
+  cp ~/auto-xmonad-repo/settings/gtk-2.mine.settings ~/.gtkrc-2.0.mine
   mkdir -p ~/.config/gtk-3.0
-  cp ~/auto-xmonad-repo/settings/gtk-3.settings ~/.config/gtk-3.0/settings.ini
+  cp -r ~/auto-xmonad-repo/settings/settings.ini ~/.config/gtk-3.0/settings.ini
 
   # download nerd-fonts-complete
-  sudo yay -Syu
-  sudo yay -S nerd-fonts-complete
+  yay -Syu
+  yay -S nerd-fonts-complete
   # set system font to this
   # change font in the file in monokai theme?
 
@@ -109,7 +109,6 @@ function selection()  {
   then
     install_yay
   fi
-  clear
   # TODO: MAKE ZSH DEFAULT SHELL
   clear
   # nitrogen
