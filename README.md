@@ -12,7 +12,7 @@ zsh
 ```
 - Clone this repo:
 ```
-cd ~/ && git clone https://github.com/USER/auto-xmonad-repo
+cd ~/ && git clone https://github.com/USER/auto-arch-repo
 ```
 - Run the custom script
 ```
