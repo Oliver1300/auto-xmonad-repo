@@ -26,8 +26,8 @@ function skip_asking_basic_stuff()  {
   # xmonad
   cd ~
   mkdir .xmonad
-  cp ~/auto-xmonad-repo/xmonad.hs ~/.xmonad/
-  cp ~/auto-xmonad-repo/xmobar ~/.xmobarrc
+  cp ~/auto-arch-repo/xmonad.hs ~/.xmonad/
+  cp ~/auto-arch-repo/xmobar ~/.xmobarrc
   # lightdm
   sudo systemctl enable lightdm
   # if resolution goes wrong see https://youtu.be/JmPLbZQRgas?t=249
@@ -58,7 +58,7 @@ function install_yay()  {
 
 function cleanup()  {
   # move keybindings help text for xmonad
-  mv ~/auto-xmonad-repo/help.txt ~/.keybindings.txt
+  mv ~/auto-arch-repo/help.txt ~/.keybindings.txt
   # delete orphan packages
   sudo pacman -S --noconfirm pacman-contrib
   paccache -r
@@ -67,23 +67,23 @@ function cleanup()  {
 function add_nitrogen_background()  {
   cd ~
   mkdir -p ~/Backgrounds
-  mv ~/auto-xmonad-repo/background01.jpg ~/Backgrounds
+  mv ~/auto-arch-repo/background01.jpg ~/Backgrounds
   mkdir -p ~/.config
   mkdir -p ~/.config/nitrogen
 }
 
 function config_themes()  {
   # gtk themes
-  sudo cp -r ~/auto-xmonad-repo/themes/monokai-gtk /usr/share/themes
+  sudo cp -r ~/auto-arch-repo/themes/monokai-gtk /usr/share/themes
   mkdir -p ~/.themes
-  cp -r ~/auto-xmonad-repo/themes/monokai-gtk ~/.themes
-  sudo cp -r ~/auto-xmonad-repo/themes/Fluent-round-Dark-compact /usr/share/themes
-  cp -r ~/auto-xmonad-repo/themes/Fluent-round-Dark-compact ~/.themes
+  cp -r ~/auto-arch-repo/themes/monokai-gtk ~/.themes
+  sudo cp -r ~/auto-arch-repo/themes/Fluent-round-Dark-compact /usr/share/themes
+  cp -r ~/auto-arch-repo/themes/Fluent-round-Dark-compact ~/.themes
   # set monokai as active
-  cp ~/auto-xmonad-repo/settings/.gtkrc-2.0 ~/
-  cp ~/auto-xmonad-repo/settings/.gtkrc-2.0.mine ~/
+  cp ~/auto-arch-repo/settings/.gtkrc-2.0 ~/
+  cp ~/auto-arch-repo/settings/.gtkrc-2.0.mine ~/
   mkdir -p ~/.config/gtk-3.0
-  cp -r ~/auto-xmonad-repo/settings/settings.ini ~/.config/gtk-3.0/
+  cp -r ~/auto-arch-repo/settings/settings.ini ~/.config/gtk-3.0/
 
   # download nerd-fonts-complete
   yay -Syu

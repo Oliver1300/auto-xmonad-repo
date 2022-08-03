@@ -16,7 +16,7 @@ cd ~/ && git clone https://github.com/USER/auto-arch-repo
 ```
 - Run the custom script
 ```
-bash auto-xmonad-repo/automate.sh
+bash auto-arch-repo/automate-OPTION.sh
 ```
 - Setup nitrogen background, press MOD + P and type:
 > nitrogen
