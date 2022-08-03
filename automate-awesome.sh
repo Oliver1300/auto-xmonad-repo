@@ -17,9 +17,9 @@ clear
 
 function skip_asking_basic_stuff()  {
   # ffplay dmenu volumeicon trayer nm-connection-editor network-manager-applet nitrogen
-  sudo pacman -S --needed --noconfirm nano vim alacritty firefox htop ranger pcmanfm-gtk3 gedit
+  sudo pacman -S --needed --noconfirm nano vim alacritty firefox htop ranger pcmanfm-gtk3 gedit xorg-server xterm
   sudo pacman -S --needed --noconfirm nvidia nvidia-utils nvidia-settings awesome lightdm lightdm-gtk-greeter xdg-user-dirs xdg-utils
-  sudo pacman -S --needed --noconfirm cups neofetch piper zenity lxsession picom
+  sudo pacman -S --needed --noconfirm cups neofetch piper zenity lxsession noto-fonts
   # TODO: Check Network Manager is installed
   sudo pacman -S --needed --noconfirm lxappearance nemo ark
   
