@@ -16,10 +16,10 @@ read -p "To start press ENTER."
 clear
 
 function skip_asking_basic_stuff()  {
-  # ffplay dmenu volumeicon trayer nm-connection-editor network-manager-applet nitrogen picom
+  # ffplay dmenu volumeicon trayer nm-connection-editor network-manager-applet nitrogen
   sudo pacman -S --needed --noconfirm nano vim alacritty firefox htop ranger pcmanfm-gtk3 gedit
   sudo pacman -S --needed --noconfirm nvidia nvidia-utils nvidia-settings awesome lightdm lightdm-gtk-greeter xdg-user-dirs xdg-utils
-  sudo pacman -S --needed --noconfirm cups neofetch piper zenity lxsession
+  sudo pacman -S --needed --noconfirm cups neofetch piper zenity lxsession picom
   # TODO: Check Network Manager is installed
   sudo pacman -S --needed --noconfirm lxappearance nemo ark
   
