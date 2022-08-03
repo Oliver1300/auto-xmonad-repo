@@ -11,7 +11,7 @@ clear
 dialog --backtitle "Automate script" --title "PREREQUISITES: git, zsh configured" --msgbox "This script automates the process for installing an awesome-wm desktop environment" 16 40 # section
 clear
 dialog --backtitle "Automate script" --title "Options" --msgbox "You can select what to install during the process." 10 20 # section
-sudo echo 'ParallelDownloads = 5' >> /etc/pacman.conf
+echo 'ParallelDownloads = 5' >> sudo /etc/pacman.conf
 read -p "To start press ENTER."
 clear
 
